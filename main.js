@@ -13,14 +13,14 @@ var config = {
 var options = {
     url: config.url,
     headers: {
-        'Connection': config[Connection],
-        'User-Agent': condifg[UA]
+        'Connection': config.Connection,
+        'User-Agent': condifg.UA
     }
 };
 
 function make(data) {
     var $ = cheerio.load(data);
-    var meizi = $(config[DOM]).toArray();
+    var meizi = $(config.DOM).toArray();
     var len = meizi.length;
     for (var i = 0; i < len; i++) {
         var imgsrc = meizi[i].attribs.src;
@@ -36,7 +36,7 @@ function download(uri, filename, callback) {
             console.log('err: ' + err);
             return false;
         }
-        request(uri).pipe(fs.createWriteStream(config[downloadurl] + filename)).on('close', callback);
+        request(uri).pipe(fs.createWriteStream(config.downloadurl + filename)).on('close', callback);
     });
 }
 
