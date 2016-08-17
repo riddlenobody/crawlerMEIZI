@@ -14,7 +14,7 @@ var options = {
     url: config.url,
     headers: {
         'Connection': config.Connection,
-        'User-Agent': condifg.UA
+        'User-Agent': conifg.UA
     }
 };
 
