@@ -1,0 +1,23 @@
+{
+  "name": "crawle-meizi",
+  "version": "1.0.0",
+  "description": "用nodejs 爬煎蛋妹子图 ლ(°◕‵ƹ′◕ლ)",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liwenjie3421/crawlerMEIZI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liwenjie3421/crawlerMEIZI/issues"
+  },
+  "homepage": "https://github.com/liwenjie3421/crawlerMEIZI#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.81.0"
+  }
+}
