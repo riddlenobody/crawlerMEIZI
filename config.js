@@ -1,5 +1,4 @@
 const config = {
-    DOM: '.text img',
     downloadurl: '/Users/admin/meizi/',
     headers: {
         url: 'http://jandan.net/ooxx/page-1973',
