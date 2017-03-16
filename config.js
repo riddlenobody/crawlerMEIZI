@@ -1,5 +1,5 @@
 const config = {
-    downloadurl: '/Users/admin/meizi/',
+    downloadurl: './imgs/',
     headers: {
         url: 'http://jandan.net/ooxx/page-1973',
         gzip: true, //解决编码为乱码
