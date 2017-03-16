@@ -4,13 +4,12 @@ const {headers, downloadPath} = require('./config.js');
 const {requestP} = require('./modules/request.js');
 const packData = require('./modules/packData.js');
 const download = require('./modules/download.js');
-
+fs.exists(downloadPath, exists => {
+    if (!exists) {
+        fs.mkdir(downloadPath);
+    }
+})
 let main = async () => {
-    fs.exists(downloadPath, exists => {
-        if (!exists) {
-            fs.mkdir(downloadPath);
-        }
-    })
     try {
         let data = await requestP(headers);
         let imgsurlArr = packData(data);
