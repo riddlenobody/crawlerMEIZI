@@ -4,11 +4,18 @@ const {headers, downloadPath} = require('./config.js');
 const {requestP} = require('./modules/request.js');
 const packData = require('./modules/packData.js');
 const download = require('./modules/download.js');
-fs.exists(downloadPath, exists => {
+(async () => {
+    let mkdir = new Promise((reslove, rejecet) => {
+        fs.exists(downloadPath, exists => {
+            reslove(exists);
+        })
+    });
+    let exists = await mkdir;
     if (!exists) {
         fs.mkdir(downloadPath);
     }
-})
+})();
+
 let main = async () => {
     try {
         let data = await requestP(headers);
