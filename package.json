@@ -19,6 +19,7 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "koa": "^2.2.0",
+    "koa-router": "^7.0.1",
     "request": "^2.81.0"
   },
   "devDependencies": {
