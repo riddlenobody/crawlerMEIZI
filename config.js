@@ -1,7 +1,7 @@
 const config = {
     downloadPath: './imgs/',
     headers: {
-        url: 'http://jandan.net/ooxx/page-1973',
+        url: 'http://jandan.net/ooxx/',
         gzip: true, //解决编码为乱码
         headers: {
             'Connection': 'keep-alive',
