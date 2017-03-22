@@ -4,7 +4,7 @@
   "description": "用nodejs 爬煎蛋妹子图 ლ(°◕‵ƹ′◕ლ)",
   "main": "main.js",
   "scripts": {
-    "dev": "hotnode service/service.js"
+    "dev": "hotnode service.js"
   },
   "repository": {
     "type": "git",
