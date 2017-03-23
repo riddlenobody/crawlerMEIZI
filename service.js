@@ -52,9 +52,12 @@ async function getImgArr(page) {
             };
         });
     }
-    headers.url += `page-${page}`;
+    let header = {};
+    Object.assign(header, headers);
+    header.url += `page-${page}`;
+    // console.log(header.url)
     try {
-        let data = await requestP(headers);
+        let data = await requestP(header);
         let imgsurlArr = packData(data);
         return imgsurlArr;
     } catch (e) {
