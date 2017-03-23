@@ -17,10 +17,14 @@ router.get('/:page', async (ctx, next) => {
     let pagesNum = await getPagesNum();
     if (page && (page <= pagesNum)) {
         let imgArr = await getImgArr(page);
-        ctx.body = {
-            imgArr,
-            pagesNum
-        };
+        if (imgArr && imgArr.length) {
+            ctx.body = {
+                imgArr,
+                pagesNum
+            };
+        } else {
+            ctx.body = {};    
+        }
     } else {
         ctx.body = {};
     }
