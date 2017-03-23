@@ -48,11 +48,11 @@ async function getImgArr(page) {
         let imgsArr = $('.text img').toArray();
         return imgsArr.map(img => {
             return {
-                src: img.attribs.src
+                src: `http:${img.attribs.src}`
             };
         });
     }
-    headers.url += `/page-${page}`;
+    headers.url += `page-${page}`;
     try {
         let data = await requestP(headers);
         let imgsurlArr = packData(data);
