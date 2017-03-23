@@ -1,5 +1,5 @@
 const request = require('request');
-const fs = require('fs');
+
 let requestP = (headers) => {
     return new Promise((reslove, reject) => {
         request(headers, (error, res, body) => {
@@ -17,17 +17,4 @@ let requestP = (headers) => {
         });
     });
 }
-let requestPipe = (headers, fileName) => {
-    return new Promise((reslove, reject) => {
-        request(headers)
-            .pipe(fs.createWriteStream(fileName))
-            .on('close', () => {
-                reslove();
-            });
-    });
-}
-
-module.exports = {
-    requestP,
-    requestPipe
-};
+module.exports = requestP;
