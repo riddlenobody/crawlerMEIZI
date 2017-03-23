@@ -3,7 +3,7 @@ const router = (require('koa-router'))();
 const fs = require('fs');
 
 const {headers} = require('./config.js');
-const {requestP} = require('./modules/request.js');
+const requestP = require('./modules/request.js');
 const cheerio = require('cheerio');
 
 const app = new Koa();
