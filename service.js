@@ -11,11 +11,17 @@ const app = new Koa();
 app.use(async (ctx, next) => {
     await next();
 });
-router.get('/:page', async (ctx, next) => {
+
+router.get('/:page', getImgRouter);
+router.get('/', getImgRouter);
+app.use(router.routes());
+app.listen(3000);
+
+async function getImgRouter(ctx, next) {
     let page = Number(ctx.params.page);
-    page = isNaN(page) ? null : page;
     let pagesNum = await getPagesNum();
-    if (page && (page <= pagesNum)) {
+    page = isNaN(page) ? pagesNum : page;
+    if (page <= pagesNum) {
         let imgArr = await getImgArr(page);
         if (imgArr && imgArr.length) {
             ctx.body = {
@@ -23,14 +29,12 @@ router.get('/:page', async (ctx, next) => {
                 pagesNum
             };
         } else {
-            ctx.body = {};    
+            ctx.body = {};
         }
     } else {
         ctx.body = {};
     }
-});
-app.use(router.routes());
-app.listen(3000);
+}
 
 async function getPagesNum() {
     let data = await requestP(headers);
@@ -49,7 +53,6 @@ async function getImgArr(page) {
         });
     }
     headers.url += `/page-${page}`;
-    console.log(headers.url);
     try {
         let data = await requestP(headers);
         let imgsurlArr = packData(data);
