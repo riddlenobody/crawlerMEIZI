@@ -15,9 +15,15 @@ router.get('/:page', async (ctx, next) => {
     let page = Number(ctx.params.page);
     page = isNaN(page) ? null : page;
     let pagesNum = await getPagesNum();
-
-    let data = await main();
-    ctx.body = '1'
+    if (page && (page <= pagesNum)) {
+        let imgArr = await getImgArr(page);
+        ctx.body = {
+            imgArr,
+            pagesNum
+        };
+    } else {
+        ctx.body = {};
+    }
 });
 app.use(router.routes());
 app.listen(3000);
@@ -28,7 +34,7 @@ async function getPagesNum() {
     return $('span.current-comment-page')[0].children[0].data.replace('[', '').replace(']', '');
 }
 
-async function main(page) {
+async function getImgArr(page) {
     let packData = (data) => {
         const $ = cheerio.load(data);
         let imgsArr = $('.text img').toArray();
@@ -38,12 +44,14 @@ async function main(page) {
             };
         });
     }
+    headers.url += `/page-${page}`;
+    console.log(headers.url);
     try {
         let data = await requestP(headers);
         let imgsurlArr = packData(data);
         return imgsurlArr;
     } catch (e) {
-        console.log(`[error]: ${JSON.stringify(e)}`);
+        // console.log(`[error]: ${JSON.stringify(e)}`);
         return [];
     }
 }
