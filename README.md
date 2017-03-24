@@ -1,7 +1,7 @@
 # crawlerMEIZI
-爬煎蛋妹子图 ლ(°◕‵ƹ′◕ლ)
+cheerio，request写的nodejs爬虫，爬煎蛋妹子图 ლ(°◕‵ƹ′◕ლ)
 
-因为尝试使用了async/await，请使用node 7.6+
+因为使用了async/await，请使用node 7.6+
 
 # use
 ```
