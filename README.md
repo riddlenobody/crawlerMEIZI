@@ -6,7 +6,7 @@
 # use
 ```
     npm install
-    npm run dev
+    npm run dev // http://localhost:3000/页数
 ```
 
 # todo
