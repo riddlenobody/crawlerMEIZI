@@ -14,9 +14,12 @@ app.use(async (ctx, next) => {
 
 router.get('/:page', getImgRouter);
 router.get('/', getImgRouter);
+
 app.use(router.routes());
+
 app.listen(3000);
 console.log('http://localhost:3000');
+
 async function getImgRouter(ctx, next) {
     let page = Number(ctx.params.page);
     let pagesNum = await getPagesNum();
