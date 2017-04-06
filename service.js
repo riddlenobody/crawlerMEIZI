@@ -32,10 +32,14 @@ async function getImgRouter(ctx, next) {
                 pagesNum
             };
         } else {
-            ctx.body = {};
+            ctx.body = {
+                error: 'no image'
+            };
         }
     } else {
-        ctx.body = {};
+        ctx.body = {
+            error: 'pagesNum is error'
+        };
     }
 }
 
